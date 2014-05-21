@@ -15,17 +15,33 @@
 
     // Performing SQL query //
 
-    $query = 'SELECT serial,question,answer FROM captchafeeder ORDER by random LIMIT 1';
+    $query = 'SELECT serial,question,answer 
+                  FROM captchafeeder 
+                  ORDER by random 
+                  LIMIT 1';
+
+    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+
+    $serial = $line[0];
+
+    $query = "DELETE from captchafeeder WHERE serial = $serial";
+
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
     // Printing results in HTML //
 
     while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
     {
+        $i = 0;
         foreach ($line as $col_value)
         {
             echo "$col_value|\n";
+            $i = 7;
         }
+    }
+    if($i == 0)
+    {
+        echo "What meat do most americans eat at thanksgiving ?|turkey\n";
     }
 
     // Free resultset

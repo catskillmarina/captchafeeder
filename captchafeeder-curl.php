@@ -1,7 +1,10 @@
 <?php 
+
+        require_once("captchafeeder-conf.php");
+
         $ch = curl_init(); 
 
-        curl_setopt($ch, CURLOPT_URL, "http://stratus.e271.net/answer.txt"); 
+        curl_setopt($ch, CURLOPT_URL, $captchafeeder_service_url); 
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 
