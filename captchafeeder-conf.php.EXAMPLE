@@ -1,0 +1,6 @@
+<?php
+    $captchafeeder_db_host = '127.0.0.1';
+    $captchafeeder_db_user = 'vtwiki';
+    $captchafeeder_db      = 'vtwiki';
+    $captchafeeder_db_mysql_password = 'foobar'
+?>
